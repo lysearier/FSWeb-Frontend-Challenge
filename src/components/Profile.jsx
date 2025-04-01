@@ -1,28 +1,29 @@
 export default function Profile() {
   return (
-    <div className="h-[560px] flex items-center justify-center bg-[#4731D3] text-white p-8">
-      <div className="flex flex-col w-[960px] h-[560px] justify-center">
+    <div className="min-h-[560px] flex items-center justify-center bg-[#4731D3] text-white p-8">
+      <div className="flex flex-col w-auto max-w-[960px] justify-center">
         {/* Profile Başlığı - Sola Hizalı */}
-        <h2 className="text-2xl font-bold mb-4 self-start">Profile</h2>
+        <h2 className="text-5xl font-bold mb-8 self-start text-[#CBF281]">Profile</h2>
 
         {/* İçeriği Ortalayan Bölüm */}
-        <div className="flex gap-[30px] items-center justify-center h-[290px]">
-          <div className="w-[300px] h-full text-left">
-            <h3 className="font-semibold">Basic Information</h3>
+        <div className="flex gap-[30px] items-start justify-center">
+          <div className="w-[300px] text-left">
+            <h3 className="font-semibold self-start mb-2">Basic Information</h3>
             <p>Doğum Tarihi: 24.03.1996</p>
             <p>İkametgah Şehri: Ankara</p>
             <p>Eğitim Durumu: Hacettepe Ünv. Biyoloji Lisans, 2016</p>
             <p>Tercih Ettiği Rol: Front, UI</p>
           </div>
 
-          <div className="w-[300px] h-full flex justify-center items-center">
-            <img src="https://via.placeholder.com/150" alt="Profile" className="w-full h-auto" />
+          <div className="w-[300px] flex justify-center items-center">
+            <img src="/images/pp2.png" alt="Profile" className="w-[300px] h-[290px] object-cover rounded-md" />
           </div>
 
-          <div className="w-[300px] h-full text-left">
-            <h3 className="font-semibold">About Me</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-            <p>Morbi euismod urna eget felis aliquet, eget tempor lacus bibendum.</p>
+          <div className="w-[300px] text-left">
+            <h3 className="font-semibold self-start mb-2">About Me</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia.
+
+Mnima accusamus ratione soluta aperiam sit voluptate? Dicta quod deserunt quam temporibus cumque magnam! </p>
           </div>
         </div>
       </div>

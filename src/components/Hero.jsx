@@ -40,7 +40,7 @@ export default function Hero() {
             onClick={toggleLanguage}
             className="absolute top-4 right-1 px-4 py-2 text-[#cbf281] font-bold rounded transition"
           >
-            {language === "en" ? "Türkçeye Geç" : "Switch to English"}
+            {language === "en" ? "Türkçe'ye Geç" : "Switch to English"}
           </button>
         </div>
 
