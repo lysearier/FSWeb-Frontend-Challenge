@@ -6,8 +6,16 @@ import Footer from './components/Footer';
 import Projects from './components/Projects';
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 export default function App() {
+
+  useEffect(() => {
+    toast.success("Hoş Geldin!", { position: "top-right", autoClose: 3000 });
+  }, []);
+
   return (
   <>
     <ThemeProvider>
@@ -17,6 +25,7 @@ export default function App() {
         <Profile />
         <Projects />
         <Footer />
+        <ToastContainer />
       </LanguageProvider>
     </ThemeProvider>
   </>

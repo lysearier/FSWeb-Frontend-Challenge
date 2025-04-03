@@ -6,35 +6,83 @@ import content from "../data/content";
 export default function Footer() {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const footerContent = content.footer[language]; // Dinamik içerik
+  const footerContent = content.footer[language];
 
   return (
-    <div className={`min-h-[454px] flex flex-col items-center justify-center p-6 transition-all duration-300 ${
-      theme === "dark" ? "bg-[#252128] text-white" : "bg-[#F9F9F9] text-black"
-    }`}>
-      <h1 className={`text-5xl font-bold mb-3 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4832d3]"}`}>
+    <footer
+      className={`min-h-[454px] flex flex-col items-center justify-center p-6 transition-all duration-300 ${
+        theme === "dark" ? "bg-[#252128] text-white" : "bg-[#F9F9F9] text-black"
+      }`}
+      aria-labelledby="footer-title"
+    >
+      {/* Başlık */}
+      <h1
+        id="footer-title"
+        className="text-5xl font-bold mb-3"
+        style={{ color: theme === "dark" ? "#8F88FF" : "#4832d3" }}
+      >
         {footerContent.sendMessage}
       </h1>
-      <p className="mb-2 text-center w-full whitespace-pre-line">
-        {footerContent.gotAQuestion}
+
+      {/* Açıklama Metni */}
+      <p className="mb-2 text-center w-full">{footerContent.gotAQuestion}</p>
+
+      {/* E-posta Adresi */}
+      <p className="mb-4">
+        <a
+          href={`mailto:${footerContent.email}`}
+          className="underline decoration-1"
+          style={{ color: theme === "dark" ? "#8F88FF" : "#4731D3" }}
+        >
+          {footerContent.email}
+        </a>
       </p>
-      <p className={`underline decoration-1 mb-4 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4731D3]"}`}>
-        {footerContent.email}
-      </p>
-      <div className={`flex gap-6 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4731D3]"}`}>
-        <a href={footerContent.socialLinks.twitter} className="hover:opacity-75">
-          <FaTwitter size={32} />
-        </a>
-        <a href={footerContent.socialLinks.codepen} className="hover:opacity-75">
-          <FaCodepen size={32} />
-        </a>
-        <a href={footerContent.socialLinks.email} className="hover:opacity-75">
-          <FaAt size={32} />
-        </a>
-        <a href={footerContent.socialLinks.instagram} className="hover:opacity-75">
-          <FaInstagram size={32} />
-        </a>
-      </div>
-    </div>
+
+      {/* Sosyal Medya Linkleri */}
+      <nav aria-label="Social media links">
+        <ul className="flex gap-6">
+          <li>
+            <a
+              href={footerContent.socialLinks.twitter}
+              aria-label="Twitter"
+              className="hover:opacity-75"
+              style={{ color: theme === "dark" ? "#8F88FF" : "#4731D3" }}
+            >
+              <FaTwitter size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href={footerContent.socialLinks.codepen}
+              aria-label="CodePen"
+              className="hover:opacity-75"
+              style={{ color: theme === "dark" ? "#8F88FF" : "#4731D3" }}
+            >
+              <FaCodepen size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href={footerContent.socialLinks.email}
+              aria-label="Send an email"
+              className="hover:opacity-75"
+              style={{ color: theme === "dark" ? "#8F88FF" : "#4731D3" }}
+            >
+              <FaAt size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href={footerContent.socialLinks.instagram}
+              aria-label="Instagram"
+              className="hover:opacity-75"
+              style={{ color: theme === "dark" ? "#8F88FF" : "#4731D3" }}
+            >
+              <FaInstagram size={32} />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   );
 }

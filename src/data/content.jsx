@@ -74,8 +74,8 @@ export const content = {
           description: "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
           technologies: ["react", "redux", "vercel"],
           image: "/images/project1.png",
-          siteLink: "https://www.example.com", // Değiştirilebilir site linki
-          githubLink: "https://github.com/example", // Değiştirilebilir GitHub linki
+          siteLink: "https://www.example.com",
+          githubLink: "https://github.com/example", 
         },
         {
           id: 2,
@@ -96,7 +96,7 @@ export const content = {
         {
           id: 1,
           name: "Workintech",
-          description: "Kullanıcıların hangi çerezleri kabul edeceğini veya reddedeceğini seçmesine olanak tanıyan basit, özelleştirilebilir bir çerez eklentisi...",
+          description: "Kullanıcılarınızın hangi çerezleri kabul edeceğini veya reddedeceğini seçmesine olanak tanıyan basit, özelleştirilebilir, minimal kurulum çerez eklentisi. Bu, vanilla JS, SCSS ve Parcel Bundler ile oluşturuldu ve bir NPM paketi olarak mevcut ve git deposu, kod ve temalarda her türlü özelleştirmeyi mümkün kılıyor.",
           technologies: ["react", "redux", "vercel"],
           image: "/images/project1.png",
           siteLink: "https://www.example.com",
@@ -105,7 +105,7 @@ export const content = {
         {
           id: 2,
           name: "Journey",
-          description: "Ekiplerin iş birliği yapmasına ve ilerlemeyi verimli bir şekilde takip etmesine yardımcı olan kullanıcı dostu bir proje yönetim aracı...",
+          description: "Kullanıcılarınızın hangi çerezleri kabul edeceğini veya reddedeceğini seçmesine olanak tanıyan basit, özelleştirilebilir, minimal kurulum çerez eklentisi. Bu, vanilla JS, SCSS ve Parcel Bundler ile oluşturuldu ve bir NPM paketi olarak mevcut ve git deposu, kod ve temalarda her türlü özelleştirmeyi mümkün kılıyor.",
           technologies: ["react", "redux", "firebase"],
           image: "/images/project2.png",
           siteLink: "https://www.example.com",

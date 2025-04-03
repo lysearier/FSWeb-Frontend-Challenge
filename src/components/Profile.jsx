@@ -1,55 +1,67 @@
 import { useLanguage } from "../context/LanguageContext";
-import { useTheme } from "../context/ThemeContext"; // ThemeContext'i ekledik
+import { useTheme } from "../context/ThemeContext";
 import content from "../data/content";
 
 export default function Profile() {
   const { language } = useLanguage();
-  const { theme } = useTheme(); // Dark mode'u almak için
+  const { theme } = useTheme();
   const profileContent = content.profile[language];
 
   return (
-    <div className={`min-h-[560px] flex items-center justify-center p-8 transition-all duration-300 ${theme === "dark" ? "bg-[#171043] text-white" : "bg-[#4731D3] text-white"}`}>
+    <section 
+      className={`min-h-[560px] flex items-center justify-center p-8 transition-all duration-300 ${
+        theme === "dark" ? "bg-[#171043] text-white" : "bg-[#4731D3] text-white"
+      }`}
+      aria-labelledby="profile-title"
+    >
       <div className="flex flex-col w-auto max-w-[960px] justify-center">
-        {/* Profile Başlığı - Sola Hizalı */}
-        <h2 className={`text-5xl font-bold mb-8 self-start text-[#CBF281]`}>
-          {profileContent.title}
-        </h2>
+        
+        {/* Başlık */}
+        <header>
+          <h2 
+            id="profile-title" 
+            className="text-5xl font-bold mb-8 self-start text-[#CBF281]"
+          >
+            {profileContent.title}
+          </h2>
+        </header>
 
-        {/* İçeriği Ortalayan Bölüm */}
         <div className="flex gap-[30px] items-start justify-center">
-          {/* Sol Bilgiler */}
-          <div className="w-[300px] text-left">
+          
+          {/* Temel Bilgiler */}
+          <article className="w-[300px] text-left">
             <h3 className="font-semibold text-2xl self-start mb-5">
               {profileContent.basicInfo}
             </h3>
-            {/* Doğum Tarihi, Şehir, Eğitim ve Rol */}
-            <div className="space-y-6"> 
+
+            <ul className="space-y-6">
               {profileContent.details.map((detail, index) => (
-                <p key={index}>
+                <li key={index}>
                   <strong className="text-[#CBF281]">{detail.label}</strong> {detail.value}
-                </p>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </article>
 
           {/* Profil Resmi */}
-          <div className="w-[300px] flex justify-center items-center">
+          <figure className="w-[300px] flex justify-center items-center">
             <img
               src="/images/pp2.png"
-              alt="Profile"
+              alt={`${profileContent.title} - Profile Picture`}
               className="w-[300px] h-[290px] object-cover rounded-md"
             />
-          </div>
+          </figure>
 
-          {/* Sağ Taraf Hakkımda */}
-          <div className="w-[300px] text-left">
+          {/* Hakkımda */}
+          <article className="w-[300px] text-left">
             <h3 className="font-semibold text-2xl self-start mb-5">
               {profileContent.aboutMe}
             </h3>
             <p>{profileContent.aboutText}</p>
-          </div>
+          </article>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 }
