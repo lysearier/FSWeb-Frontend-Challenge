@@ -1,25 +1,37 @@
 import { FaTwitter, FaCodepen, FaAt, FaInstagram } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
+import content from "../data/content";
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const { theme } = useTheme();
+  const footerContent = content.footer[language]; // Dinamik içerik
+
   return (
-    <div className="min-h-[454px] bg-[#F9F9F9] text-white flex flex-col items-center justify-center p-6">
-      <h1 className="text-5xl font-bold mb-3 text-[#4832d3]">Send me a message!</h1>
-      <p className="text-black mb-2 text-center">
-        Got a question or proposal, or just want to <br />
-        say hello? Go ahead.
+    <div className={`min-h-[454px] flex flex-col items-center justify-center p-6 transition-all duration-300 ${
+      theme === "dark" ? "bg-[#252128] text-white" : "bg-[#F9F9F9] text-black"
+    }`}>
+      <h1 className={`text-5xl font-bold mb-3 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4832d3]"}`}>
+        {footerContent.sendMessage}
+      </h1>
+      <p className="mb-2 text-center w-full whitespace-pre-line">
+        {footerContent.gotAQuestion}
       </p>
-      <p className="text-[#4731D3] underline decoration-1 mb-4">erengndz57@outlook.com</p>
-      <div className="flex gap-6 text-[#4731D3]">
-        <a href="https://x.com/erenamauzgun_" className="hover:text-[#3023a1]">
-          <FaTwitter size={32} style={{ fill: "none", stroke: "currentColor", strokeWidth: 30 }} />
+      <p className={`underline decoration-1 mb-4 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4731D3]"}`}>
+        {footerContent.email}
+      </p>
+      <div className={`flex gap-6 ${theme === "dark" ? "text-[#8F88FF]" : "text-[#4731D3]"}`}>
+        <a href={footerContent.socialLinks.twitter} className="hover:opacity-75">
+          <FaTwitter size={32} />
         </a>
-        <a href="https://codepen.io" className="hover:text-[#3023a1]">
+        <a href={footerContent.socialLinks.codepen} className="hover:opacity-75">
           <FaCodepen size={32} />
         </a>
-        <a href="mailto:erengndz57@outlook.com" className="hover:text-[#3023a1]">
+        <a href={footerContent.socialLinks.email} className="hover:opacity-75">
           <FaAt size={32} />
         </a>
-        <a href="https://instagram.com" className="hover:text-[#3023a1]">
+        <a href={footerContent.socialLinks.instagram} className="hover:opacity-75">
           <FaInstagram size={32} />
         </a>
       </div>
